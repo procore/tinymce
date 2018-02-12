@@ -83,21 +83,15 @@ define(
     };
 
     var getSkinUrl = function (editor) {
-      var settings = editor.settings;
-      var skin = settings.skin;
-      var skinUrl = settings.skin_url;
+      return editor.settings.skin_url;
+    };
 
-      if (skin !== false) {
-        var skinName = skin ? skin : 'lightgray';
+    var getContentUrl = function (editor) {
+      return editor.settings.content_url;
+    };
 
-        if (skinUrl) {
-          skinUrl = editor.documentBaseURI.toAbsolute(skinUrl);
-        } else {
-          skinUrl = EditorManager.baseURL + '/skins/' + skinName;
-        }
-      }
-
-      return skinUrl;
+    var getContentInlineUrl = function (editor) {
+      return editor.settings.content_inline_url;
     };
 
     var isSkinDisabled = function (editor) {
@@ -157,6 +151,8 @@ define(
       getMaxWidth: getMaxWidth,
       getMaxHeight: getMaxHeight,
       getSkinUrl: getSkinUrl,
+      getContentUrl: getContentUrl,
+      getContentInlineUrl: getContentInlineUrl,
       isSkinDisabled: isSkinDisabled,
       isInline: isInline,
       getToolbars: getToolbars
