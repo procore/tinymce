@@ -19,17 +19,10 @@ define(
   function (Settings, Iframe, Inline, ProgressState) {
     var renderUI = function (editor, theme, args) {
       var skinUrl = Settings.getSkinUrl(editor);
-      var contentUrl = Settings.getContentUrl(editor);
-      var contentInlineUrl = Settings.getContentInlineUrl(editor);
 
       if (skinUrl) {
-        args.skinUiCss = skinUrl;
-
-        if (editor.inline) {
-          editor.contentCSS.push(contentInlineUrl);
-        } else {
-          editor.contentCSS.push(contentUrl);
-        }
+        args.skinUiCss = skinUrl + '/skin.min.css';
+        editor.contentCSS.push(skinUrl + '/content' + (editor.inline ? '.inline' : '') + '.min.css');
       }
 
       ProgressState.setup(editor, theme);

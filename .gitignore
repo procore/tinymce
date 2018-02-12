@@ -35,8 +35,8 @@ mentions
 *.min.css
 *.dev.less
 **/bolt/bootstrap*.js
+**/dist
 **/scratch
 **/lib
-**/dist
 **/dependency
 **/instrumented_*
